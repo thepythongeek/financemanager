@@ -1,0 +1,81 @@
+
+<!Doctype html>
+<html>
+	<head>
+		<title>ThePythonGeek</title>
+		<link rel="stylesheet" href="../static/css/styles.css">
+	</head>
+	<body>
+		<!--navbar-->
+		<nav>
+			<ul>
+				<li class="logo"><a href="">FinanceManager</a></li>
+				<li><a href="">Expenses</a></li>
+				<li><a href="">Income</a></li>
+				<li><a href="">Logout</a></li>
+			</ul>
+		</nav>
+		<!-- main section-->
+		<header>
+			<h1>Welcome Chris</h1>
+			<p>Keeping track of your finances is a healthy thing to do. We here at the <span id="website"><a href="">
+			thePythonGeek</a></span> are glad that you are using <em>FinanceManager</em>.
+			Do not forget to tell us your suggestions. We will be glad to put them into good use.</p>
+			<p>Using FinanceManager is simple and easy. Just enter your Financial details and we will 
+			keep them for you in a safe place. By continuosly inserting your financial records, we will 
+			be monitoring both the expenses and income for you.</p>
+		</header>
+		<section>
+			<div id="display">
+				<p>Your expenses are: 345</p>
+				<p>Your remaining income is: 2300</p>
+			</div>
+			<div id="form">
+				<form>
+					<ul>
+						<li>
+							<fieldset>
+								<ul id="details">
+									<li><legend>Enter Your Financial details here</legend></li>
+									<li><input type="text" name="item" placeholder="item"></li>
+									<li><input type="number" name="amount" min="0" placeholder="amount"></li>
+							    </ul>
+						    </fieldset></li>
+						<li>
+							<fieldset>
+								<ul>
+									<li><legend>Choose either income or expenses</legend></li>
+									<li class="radio"><input type="radio" name="transaction" value="expenses" id="form-expenses"><label for="form-expenses">expenses</label></li>
+									<li class="radio"><input type="radio" name="transaction" value="income" id="form-income"><label for="form-income">income</label></li>
+								</ul>
+							</fieldset></li>
+					    <li id="Add"><input type="submit" value="Add"></li>
+				    </ul>
+				</form>
+			</div>
+		</section>
+		
+		<!-- Footer -->
+		<Footer>
+			<div id="inquiries">
+				<h3>Inquiries</h3>
+				<form>
+					<ul>
+						<li><textarea name="inquiries" rows="6" cols="80" placeholder="We are waiting to hear from you"></textarea>
+						<li><input type="submit"></li>
+					</ul>
+				</form>
+			</div>
+			<div id="contacts">
+				<h3>Contacts</h3>
+				<dl>
+					<dt>website</dt>
+					<dd><a href="">thePythonGeek</a></dd>
+					<dt>email</dt>
+					<dd>thePythonGeek.yahoo.com</dd>
+				</dl>
+			</div>
+			<p class="copyright">copyright &copy;thePythonGeek 2020</p>
+		</Footer>
+	</body>
+</html>

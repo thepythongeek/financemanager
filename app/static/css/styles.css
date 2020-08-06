@@ -1,0 +1,169 @@
+
+body {
+	font-size: 100%;
+	font-family: Dosis, "Open Sans Condensed", "Comic Sans", Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color : #fbe3e8;
+}
+
+header {
+	font-size : 1.2em;
+	color : #7ca2d9;
+	line-height : 1.7em;
+	margin: 50px 0 0 0;
+	padding : 0 60px;
+}
+
+header h1 {
+	font-size: 1.3em;
+	text-align : center;
+	letter-spacing : 3px;
+	font-weight : normal;
+}
+
+/*styling navbar */
+nav ul {
+	padding : 0 0 0 250px;
+}
+nav li {
+	display : inline;
+	padding: 0 20px;
+}
+
+nav li a:visited {
+	color :#db970d;
+}
+
+nav li a:focus, nav li a:hover {
+	color : white;
+}
+
+nav li a:active {
+	color : red;
+}
+
+a {
+	text-decoration : none ;
+}
+
+/* styling forms */
+
+ul li {
+	list-style-type : none;
+}
+
+fieldset {
+	border : none;
+}
+
+.radio {
+	display: inline;
+}
+
+
+#details li {
+	margin: 8px 0;
+}
+
+#details input{
+	border : thin solid;
+	color: yellow;
+	border-radius : 5px;
+	color :#db970d;
+}
+
+#Add {
+	position : relative;
+	left : 145px;
+}
+
+#form form {
+	padding: 0;
+	margin-left: -40px;
+}
+
+legend {
+	color :#db970d;
+}
+
+	
+/* creating a two column layout for the section */
+section {
+	overflow : hidden;
+	padding : 0 60px;
+}
+
+#display {
+	width : 40%;
+	margin : 0 2%;
+	padding: 0;
+	float: left;
+	color : #4372ab;
+	font-weight : bold;
+	letter-spacing : 5px;
+	font-size : 1.1em;
+}
+
+#form {
+	width : 30%;
+	margin : 0 2% 0 2%;
+	padding: 0;
+	float: left;
+}
+
+
+
+/* style the table */
+table {
+	border-collapse : separate;
+	border-spacing : 100px 10px;
+	color :#db970d;
+}
+			
+			
+/* Footer */
+
+Footer {
+	clear: both;
+	background-color : rgb(100, 100, 100);
+	margin-bottom : 0;
+	color :#db970d;
+	font-size: .75em;
+	padding-top : 5px;
+}
+
+
+
+dd, dt{
+	margin : 0 5%;
+	float : left;
+}
+
+dd {
+	color : white;
+}
+
+Footer a , #website a{
+	color : white;
+}
+
+Footer a:visited, #website a:visited {
+	color : yellow;
+}
+
+Footer a:focus, Footer a:hover, #website a:focus, #website a:hover {
+	color : red;
+}
+
+h3 {
+	text-align : center;
+	color : yellow;
+	font-weight : normal;
+}
+
+.copyright {
+	clear : both;
+	text-align: center;
+	padding-top : 4px;
+}
