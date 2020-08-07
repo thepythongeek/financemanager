@@ -24,11 +24,11 @@ header h1 {
 
 /*styling navbar */
 nav ul {
-	padding : 0 0 0 250px;
+	padding : 0 25%;
 }
 nav li {
 	display : inline;
-	padding: 0 20px;
+	padding: 0 4%;
 }
 
 nav li a:visited {
@@ -170,6 +170,15 @@ h3 {
 	clear : both;
 	text-align: center;
 	padding-top : 4px;
+}
+
+/* styles trying to center footer containers */
+#contacts {
+	margin : 0 25%;
+}
+
+#inquiries {
+	margin : 0 25%;
 }
 
 /* styling the alerts from flask*/
