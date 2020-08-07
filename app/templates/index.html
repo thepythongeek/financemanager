@@ -44,16 +44,16 @@
 							<fieldset>
 								<ul id="details">
 									<li><legend>Enter Your Financial details here</legend></li>
-									<li><input type="text" name="item" placeholder="item" required="required"></li>
-									<li><input type="number" name="amount" min="0" placeholder="amount" required="required"></li>
+									<li><input type="text" name="item" placeholder="item" required="required" maxlength="14"></li>
+									<li><input type="number" name="amount" min="0" placeholder="amount" required="required" maxlength="14"></li>
 							    </ul>
 						    </fieldset></li>
 						<li>
 							<fieldset>
 								<ul>
 									<li><legend>Choose either income or expenses</legend></li>
-									<li class="radio"><input type="radio" name="transaction" value="expenses" id="form-expenses" selected="selected"><label for="form-expenses">expenses</label></li>
-									<li class="radio"><input type="radio" name="transaction" value="income" id="form-income" ><label for="form-income">income</label></li>
+									<li class="radio"><input type="radio" name="transaction" value="expenses" id="form-expenses" required="required"><label for="form-expenses">expenses</label></li>
+									<li class="radio"><input type="radio" name="transaction" value="income" id="form-income" required="required"><label for="form-income">income</label></li>
 								</ul>
 							</fieldset></li>
 					    <li id="Add"><input type="submit" value="Add"></li>
