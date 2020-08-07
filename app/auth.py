@@ -6,6 +6,7 @@ from flask import flash
 from flask import redirect
 from flask_login import LoginManager
 from flask_login import login_user, logout_user
+from werkzeug.urls import url_parse
 from app.models import db, User, Inquiry
 
 
@@ -79,8 +80,11 @@ def login():
         login_user(user)
         
         # obtain the next parameter 
-        next_ = request.args.get('next')
-        return redirect(next_ or url_for('main.index'))
+        next_page = request.args.get('next')
+        # validate the next value 
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('main.index')
+        return redirect(next_page)
     return render_template('login.html')
     
 
@@ -101,6 +105,6 @@ def inquiry():
         flash('We have recieved your inquiry')
         
         # get the next parameter from the url 
-        next_ = request.args.get('next')
-        next_ = 'auth.' + next_ 
-        return redirect(url_for(next_))
+        next_page  = request.args.get('next')
+        next_page = 'auth.' + next_page  
+        return redirect(url_for(next_page))
