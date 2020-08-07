@@ -1,0 +1,12 @@
+{% extends 'expenses.html' %}
+
+
+{%block record %}
+{% for record in current_user.incomes %}
+				<tr>
+					<td>{{record.item}}</td>
+					<td>{{record.amount}}</td>
+					<td>{{record.date.ctime()}}</td>
+				</tr>
+{% endfor %}
+{% endblock %}

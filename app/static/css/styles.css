@@ -167,3 +167,14 @@ h3 {
 	text-align: center;
 	padding-top : 4px;
 }
+
+/* styling the alerts from flask*/
+.flashes {
+	text-align : center;
+	border : thin solid rgb(150, 150, 150);
+	border-radius : 10px;
+	background-color: white;
+	color : red;
+	font-size : 1.2em;
+	margin: 0 45px;
+}

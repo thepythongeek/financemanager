@@ -9,13 +9,20 @@
 		<!--navbar-->
 		<nav>
 			<ul>
-				<li class="logo"><a href="">FinanceManager</a></li>
-				<li><a href="">Expenses</a></li>
-				<li><a href="">Income</a></li>
-				<li><a href="">Logout</a></li>
+				<li class="logo"><a href="{{url_for('main.index')}}">FinanceManager</a></li>
+				<li><a href="{{url_for('main.expenses')}}">Expenses</a></li>
+				<li><a href="{{url_for('main.income')}}">Income</a></li>
+				<li><a href="{{url_for('auth.logout')}}">Logout</a></li>
 			</ul>
 		</nav>
 		<!-- main section-->
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<p class="flashes">{{message}}</p>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
 		<header>
 			<h1>Welcome {% if current_user.is_authenticated %}{{current_user.username}}{%endif%}</h1>
 			<p>Keeping track of your finances is a healthy thing to do. We here at the <span id="website"><a href="">
@@ -27,26 +34,26 @@
 		</header>
 		<section>
 			<div id="display">
-				<p>Your expenses are: 345</p>
-				<p>Your remaining income is: 2300</p>
+				<p>Your expenses are: {{expenses}}</p>
+				<p>Your remaining income is: {{income}}</p>
 			</div>
 			<div id="form">
-				<form>
+				<form method="post">
 					<ul>
 						<li>
 							<fieldset>
 								<ul id="details">
 									<li><legend>Enter Your Financial details here</legend></li>
-									<li><input type="text" name="item" placeholder="item"></li>
-									<li><input type="number" name="amount" min="0" placeholder="amount"></li>
+									<li><input type="text" name="item" placeholder="item" required="required"></li>
+									<li><input type="number" name="amount" min="0" placeholder="amount" required="required"></li>
 							    </ul>
 						    </fieldset></li>
 						<li>
 							<fieldset>
 								<ul>
 									<li><legend>Choose either income or expenses</legend></li>
-									<li class="radio"><input type="radio" name="transaction" value="expenses" id="form-expenses"><label for="form-expenses">expenses</label></li>
-									<li class="radio"><input type="radio" name="transaction" value="income" id="form-income"><label for="form-income">income</label></li>
+									<li class="radio"><input type="radio" name="transaction" value="expenses" id="form-expenses" selected="selected"><label for="form-expenses">expenses</label></li>
+									<li class="radio"><input type="radio" name="transaction" value="income" id="form-income" ><label for="form-income">income</label></li>
 								</ul>
 							</fieldset></li>
 					    <li id="Add"><input type="submit" value="Add"></li>

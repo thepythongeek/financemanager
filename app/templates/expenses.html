@@ -1,0 +1,73 @@
+
+<!Doctype html>
+<html>
+	<head>
+		<title>ThePythonGeek</title>
+		<link rel="stylesheet" href="../static/css/styles.css">
+	</head>
+	<body>
+		<!--navbar-->
+		<nav>
+			<ul>
+				<li class="logo"><a href="{{url_for('main.index')}}">FinanceManager</a></li>
+				<li><a href="{{url_for('main.expenses')}}">Expenses</a></li>
+				<li><a href="{{url_for('main.income')}}">Income</a></li>
+				<li><a href="{{url_for('auth.logout')}}">Logout</a></li>
+			</ul>
+		</nav>
+		<!-- main section-->
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for message in messages %}
+		<p class="flashes">{{message}}</p>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+		<header>
+			<h1>Financial Details</h1>
+			<p>It is always important to know the flow of your money, how it is flowing in and out for a stronger 
+			financial success.</p>
+		</header>
+		<section>
+			<table>
+				<tr>
+					<th>Details</th>
+					<th>Amount</th>
+					<th>Date</th>
+				</tr>
+				{% block record %}
+				{% for record in current_user.expenses %}
+				<tr>
+					<td>{{record.item}}</td>
+					<td>{{record.amount}}</td>
+					<td>{{record.date.ctime()}}</td>
+				</tr>
+				{% endfor %}
+				{% endblock %}
+			</table>
+		</section>
+		
+		<!-- Footer -->
+		<Footer>
+			<div id="inquiries">
+				<h3>Inquiries</h3>
+				<form>
+					<ul>
+						<li><textarea name="inquiries" rows="6" cols="80" placeholder="We are waiting to hear from you"></textarea>
+						<li><input type="submit"></li>
+					</ul>
+				</form>
+			</div>
+			<div id="contacts">
+				<h3>Contacts</h3>
+				<dl>
+					<dt>website</dt>
+					<dd><a href="">www.thepythongeek.com</a></dd>
+					<dt>email</dt>
+					<dd>thePythonGeek.yahoo.com</dd>
+				</dl>
+			</div>
+			<p class="copyright">copyright &copy;thePythonGeek 2020</p>
+		</Footer>
+	</body>
+</html>

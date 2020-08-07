@@ -5,7 +5,7 @@ from flask import render_template, request, url_for
 from flask import flash 
 from flask import redirect
 from flask_login import LoginManager
-from flask_login import login_user
+from flask_login import login_user, logout_user
 from app.models import db, User 
 
 
@@ -14,6 +14,9 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 # create an instance of LoginManager
 login_manager = LoginManager()
+
+# set the login view 
+login_manager.login_view = 'auth.login'
 
 #tell flask login how to load user from user id  
 @login_manager.user_loader
@@ -64,9 +67,24 @@ def login():
         if user is None:
             flash('User doesnot exist')
             return render_template('login.html')
+        elif user.email != email:
+            flash('invalid email')
+            return render_template('login.html')
+        elif not user.check_hashed_password(password):
+            flash('Wrong password')
+            return render_template('login.html')
         
-        # if user is not none then the user is valid 
+        # if user is not none and correct password then the user is valid 
         # use the login_user function to log in the user 
         login_user(user)
-        return redirect(url_for('main.index'))
+        
+        # obtain the next parameter 
+        next_ = request.args.get('next')
+        return redirect(next_ or url_for('main.index'))
     return render_template('login.html')
+    
+
+@bp.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('.login'))
