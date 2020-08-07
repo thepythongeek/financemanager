@@ -77,7 +77,7 @@ def login():
         
         # if user is not none and correct password then the user is valid 
         # use the login_user function to log in the user 
-        login_user(user)
+        login_user(user, remember=True)
         
         # obtain the next parameter 
         next_page = request.args.get('next')
