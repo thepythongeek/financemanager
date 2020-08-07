@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<h1>Welcome to the FinanceManager</h1>
+		<!-- flashed messages from flask -->
 		{% with messages = get_flashed_messages() %}
 		{% if messages %}
 		{% for message in messages %}
@@ -22,7 +23,7 @@
 					<li><input type="text" name="username" placeholder="username" required="required"></li>
 					<li><input type="email" name="email" placeholder="email" required="required"></li>
 					<li><input type="password" name="password" placeholder="password" required="required"></li>
-					<li><input type="submit" value="Register"></li>
+					<li><input type="submit" value="Login"></li>
 				</ul>
 			</form>
 		</div>

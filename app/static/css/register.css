@@ -24,6 +24,7 @@ h2 {
 	color :#db970d;
 }
 
+/* styling the form */
 #register form {
 	width : 50%;
 	margin : 0 auto 0 10%;
@@ -43,4 +44,15 @@ h2 {
 
 #register ul li {
 	margin: 8px 0;
+}
+
+/* styling the alerts from flask*/
+.flashes {
+	text-align : center;
+	border : thin solid rgb(150, 150, 150);
+	border-radius : 10px;
+	background-color: white;
+	color : red;
+	font-size : 1.2em;
+	margin: 0 45px;
 }

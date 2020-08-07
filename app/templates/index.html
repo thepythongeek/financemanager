@@ -17,7 +17,7 @@
 		</nav>
 		<!-- main section-->
 		<header>
-			<h1>Welcome Chris</h1>
+			<h1>Welcome {% if current_user.is_authenticated %}{{current_user.username}}{%endif%}</h1>
 			<p>Keeping track of your finances is a healthy thing to do. We here at the <span id="website"><a href="">
 			thePythonGeek</a></span> are glad that you are using <em>FinanceManager</em>.
 			Do not forget to tell us your suggestions. We will be glad to put them into good use.</p>
