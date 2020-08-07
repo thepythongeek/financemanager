@@ -37,7 +37,6 @@ def create_app(test_config=None):
     from app import auth 
     app.register_blueprint(auth.bp)
     auth.login_manager.init_app(app)
-    
     return app 
     
     

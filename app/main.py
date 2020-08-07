@@ -55,6 +55,7 @@ def income():
     
 
 @bp.route('/inquiries', methods=['POST'])
+@login_required
 def inquiries():
     if request.method == 'POST':
         inquiries = request.form.get('inquiries')

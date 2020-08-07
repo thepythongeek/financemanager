@@ -6,6 +6,7 @@ from flask import flash
 from flask import redirect
 from flask_login import LoginManager
 from flask_login import login_user, logout_user
+from flask_login import current_user
 from werkzeug.urls import url_parse
 from app.models import db, User, Inquiry
 
@@ -57,6 +58,9 @@ def register():
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('main.index'))
+        
     if request.method == 'POST':
         # obtain data from form 
         name = request.form.get('username')
