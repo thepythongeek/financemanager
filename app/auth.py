@@ -6,7 +6,7 @@ from flask import flash
 from flask import redirect
 from flask_login import LoginManager
 from flask_login import login_user, logout_user
-from app.models import db, User 
+from app.models import db, User, Inquiry
 
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
@@ -88,3 +88,19 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('.login'))
+    
+@bp.route('/inquiries', methods=['POST'])
+def inquiry():
+    if request.method == 'POST':
+        inquiry = request.form.get('inquiries')
+        
+        # now add the inquiry to the database 
+        anonymous_inquiry = Inquiry(msg=inquiry)
+        db.session.add(anonymous_inquiry)
+        db.session.commit()
+        flash('We have recieved your inquiry')
+        
+        # get the next parameter from the url 
+        next_ = request.args.get('next')
+        next_ = 'auth.' + next_ 
+        return redirect(url_for(next_))

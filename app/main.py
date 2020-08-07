@@ -6,7 +6,7 @@ from flask import request
 from flask import flash  
 from flask_login import login_required
 from flask_login import current_user
-from app.models import IncomeRecord, ExpensesRecord, db
+from app.models import IncomeRecord, ExpensesRecord, db, Inquiry
 
 
 
@@ -52,3 +52,16 @@ def expenses():
 @login_required
 def income():
     return render_template('income.html')
+    
+
+@bp.route('/inquiries', methods=['POST'])
+def inquiries():
+    if request.method == 'POST':
+        inquiries = request.form.get('inquiries')
+        # insert the inquiry into database 
+        inquiry = Inquiry(msg=inquiries)
+        inquiry.author = current_user
+        db.session.add(inquiry)
+        db.session.commit()
+        flash('Thank you we have recieved your inquiry')
+        return redirect(url_for('main.index'))

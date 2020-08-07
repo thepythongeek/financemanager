@@ -66,7 +66,7 @@
 		<Footer>
 			<div id="inquiries">
 				<h3>Inquiries</h3>
-				<form>
+				<form method="post" action="{{url_for('main.inquiries')}}">
 					<ul>
 						<li><textarea name="inquiries" rows="6" cols="80" placeholder="We are waiting to hear from you"></textarea>
 						<li><input type="submit"></li>
@@ -80,6 +80,8 @@
 					<dd><a href="">thePythonGeek</a></dd>
 					<dt>email</dt>
 					<dd>thePythonGeek.yahoo.com</dd>
+					<dt>mobile</dt>
+					<dd>+255 766299058</dd>
 				</dl>
 			</div>
 			<p class="copyright">copyright &copy;thePythonGeek 2020</p>

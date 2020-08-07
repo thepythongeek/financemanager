@@ -41,6 +41,7 @@ class User(db.Model, UserMixin):
     # a user can have many income as well expenses records 
     incomes = db.relationship('IncomeRecord', back_populates='user', lazy='dynamic')
     expenses = db.relationship('ExpensesRecord', back_populates='user', lazy='dynamic')
+    inquiry = db.relationship('Inquiry', back_populates='author', uselist=False)
     
     def hash_password(self):
         self.password = generate_password_hash(self.password)
@@ -89,3 +90,10 @@ class ExpensesRecord(db.Model):
         db.session.add(self)
         db.session.commit()
   
+  
+class Inquiry(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    msg = db.Column(db.Text)
+    sent_time = db.Column(db.DateTime, default=datetime.datetime.now)
+    user_id = db.Column(db.ForeignKey('user.id'))
+    author = db.relationship('User', back_populates='inquiry', uselist=False)
