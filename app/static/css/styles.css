@@ -144,15 +144,19 @@ dd {
 	color : white;
 }
 
-Footer a , #website a{
+Footer a , #website a, #signup{
 	color : white;
 }
 
-Footer a:visited, #website a:visited {
+Footer a:visited, #website a:visited{
 	color : yellow;
 }
 
-Footer a:focus, Footer a:hover, #website a:focus, #website a:hover {
+#signup:visited {
+	color :rgb(100,100,100);
+}
+
+Footer a:focus, Footer a:hover, #website a:focus, #website a:hover, #signup:hover, #signup:focus {
 	color : red;
 }
 

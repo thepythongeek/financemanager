@@ -15,15 +15,20 @@ h1 {
 	margin-bottom : 10%;
 }
 
-h2 {
+#register div{
 	width : 20%;
 	margin : 0 1%;
 	float : left;
-	font-size : 1.35em;
+	font-size : 1.2em;
 	font-weight : normal;
 	color :#db970d;
 }
 
+#register div h2 {
+	font-size: 1.35em;
+	font-weight : normal;
+}
+	
 /* styling the form */
 #register form {
 	width : 50%;
